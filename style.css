@@ -1,0 +1,321 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fff0f3, #ffe6eb, #ffffff);
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* شاشة قفل الباسورد */
+.lock-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 240, 243, 0.96);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(10px);
+}
+
+.lock-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(214, 51, 108, 0.15);
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    border: 2px solid #ffccd5;
+}
+
+.lock-box h2 {
+    color: #d6336c;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.lock-box p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* حاوية الباسورد وزر العين */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #ff85a1;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    background: #fff;
+}
+
+.password-wrapper input:focus {
+    border-color: #d6336c;
+    box-shadow: 0 0 10px rgba(214, 51, 108, 0.2);
+}
+
+/* زر العين */
+.eye-btn {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    color: #888;
+    transition: 0.2s;
+}
+
+.eye-btn:hover {
+    color: #d6336c;
+}
+
+.lock-box button#unlock-btn {
+    background: linear-gradient(45deg, #ff4d6d, #d6336c);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    width: 100%;
+}
+
+.lock-box button#unlock-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(214, 51, 108, 0.3);
+}
+
+.error {
+    color: #ff3333;
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* المحتوى الرئيسي */
+#main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 40px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(214, 51, 108, 0.08);
+    border-top: 5px solid #d6336c;
+}
+
+.hero-section h1 {
+    color: #d6336c;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 16px;
+}
+
+/* الأقسام العامة */
+.section-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #ffe6eb;
+    transition: transform 0.3s;
+}
+
+.section-card:hover {
+    transform: translateY(-2px);
+}
+
+.section-card h2 {
+    color: #d6336c;
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #fff0f3;
+    padding-bottom: 10px;
+}
+
+/* شبكة رسائل الحب (مساحة واسعة ومنظمة) */
+.love-notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.note-box {
+    background: #fff0f3;
+    padding: 25px;
+    border-radius: 15px;
+    border-right: 5px solid #ff4d6d;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #495057;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.05);
+}
+
+/* شبكة الصور الواسعة (لكذا صورة) */
+.image-gallery-wide {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.img-card {
+    background: #fff0f3;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid #ffccd5;
+    text-align: center;
+}
+
+.img-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.img-card img:hover {
+    transform: scale(1.02);
+}
+
+/* شبكة الفيديوهات (لكذا فيديو بمساحات مريحة) */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.video-box {
+    background: #fff0f3;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #ffccd5;
+    text-align: center;
+}
+
+.custom-video {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    outline: none;
+    background: #000;
+}
+
+/* قسم الصوت */
+.media-container {
+    text-align: center;
+}
+
+.custom-audio {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* التذييل */
+.footer-section {
+    text-align: center;
+    padding: 35px;
+    background: linear-gradient(135deg, #d6336c, #ff4d6d);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(214, 51, 108, 0.2);
+}
+
+.footer-section h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.footer-section p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+/* تنسيق قسم الحقوق وتوقيع حنين */
+.designer-footer {
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 30px;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 1px dashed #ff85a1; /* إطار رقيق وراقي يدي شكل هدية */
+    box-shadow: 0 5px 15px rgba(214, 51, 108, 0.05);
+}
+
+.love-message {
+    color: #d6336c;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.rights-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.dot {
+    color: #ff4d6d;
+    font-weight: bold;
+}
+
+.designer-tag {
+    color: #ff4d6d;
+    font-weight: 600;
+    background: #fff0f3;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid #ffccd5;
+}
